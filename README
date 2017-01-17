@@ -1,0 +1,3 @@
+This is the most recent version of dOpenCL, effectively an implementation of virtualgl for CL. The project is no longer being developed at Universität Münster, where it originated, but I've been granted a copy of the most recent version, which, unlike the version hosted at [1], can be build without access to their (proprietary) Real Time Framework. I'm hosting this here in the hopes that it'll be useful to someone, and that I might implement some more OpenCL features in it should I have the time. For more information, see README_Linux.txt.
+
+[1] http://www.uni-muenster.de/PVS/en/research/dopencl/
