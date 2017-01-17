@@ -1,0 +1,13 @@
+/*!
+ * \namespace dclasio::message
+ * \brief Message classes for the dOpenCL communication layer
+ *
+ * The message classes represent the requests and corresponding responses
+ * required for RPC as well as notification messages exchanged between the
+ * client driver and the daemon.
+ *
+ * The message classes should be removed from the API as they are intended for
+ * internal use by the communication layer. Currently, message are used by the
+ * client driver directly in conjunction with Process::sendMessage, as the
+ * dOpenCL API classes are not fully implemented yet.
+ */

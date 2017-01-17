@@ -1,0 +1,116 @@
+Installing dOpenCL
+==================
+
+(last update: 2014-12-22, Philipp Kegel)
+
+1. Requirements
+2. Building dOpenCL from source
+3. Installing dOpenCL
+4. Known issues
+
+
+------------
+Requirements
+------------
+
+* C++11-enabled compiler
+  has been tested successfully with g++ 4.6 and g++ 4.7
+* OpenCL 1.1+
+  only has to be installed on the dOpenCL compute nodes.
+  The OpenCL headers and C++ binding have to be installed in the system's
+  default include directories
+* Boost (>=1.41.0)
+  required libraries: Boost.Asio, Boost.Program_options, Boost.Test (optional)
+  http://www.boost.org
+* CMake (>=2.6)
+  http://www.cmake.org
+
+
+----------------------------
+Building dOpenCL from source
+----------------------------
+
+1. Create dOpenCL home
+
+   Create a directory and copy the dOpenCL sources into that directory.
+   This directory will become the dOpenCL home.
+
+2. Build dOpenCL
+
+   dOpenCL is build in two steps: after creating a Make file using CMake, the
+   dOpenCL binaries and libraries are build using Make.
+
+   a) Creating the make file using CMake
+      The dOpenCL CMake configuration (CMakeLists.txt in dOpenCL home) allows
+      for the following settings:
+
+	FORCE_FLUSH=OFF       flush command queues after enqueing a command
+            This option can be set to increase concurrency of command execution
+            in OpenCL implementations that do not execute command before a
+            command queue is flushed (e.g., AMD APP SDK)
+        BUILD_SHARED_LIBS=ON 
+            build dOpenCL communication library as shared object (recommended)
+            Note that the dOpenCL installable client driver (libdOpenCL.so) is
+            always built as a shared object.
+
+      Besides, the CMake build type (CMAKE_BUILD_TYPE) has to be specified.
+      We recommend using the ncurses CMake GUI 'ccmake'.
+
+      We strongly recommend to perform an out-of-source build: create a
+      directory for building dOpenCL and change into that directory. For
+      example, create a subdirectory 'build' inside the dOpenCL home.
+
+   b) Build dOpenCL binaries and libraries using Make
+      After creating the make file with CMake, the dOpenCL binaries and
+      libraries can be built by calling 'make' in the build directory.
+
+   The corresponding commands for building dOpenCL are as follows:
+     cd <dOpenCL home>
+     mkdir build
+     cd build
+     cmake -D CMAKE_BUILD_TYPE=Release ..
+     make
+
+
+------------------
+Installing dOpenCL
+------------------
+
+dOpenCL is most easily installed by calling 'make install' from within the build
+directory. This will install dOpenCL in your system's default directory. Note
+that the call requires root rights.
+
+If you do not want to install dOpenCL into your default system directory, or if
+you do not have appropriate rights to do so, you should export the DCL_HOME
+environment variable, such that its value is the path to the dOpenCL build
+directory.
+
+After installing dOpenCL, refer to README_Linux.txt for information on how to
+use dOpenCL.
+
+Installable Client Driver (ICD)
+-------------------------------
+
+dOpenCL currently does not support OpenCL's ICD loader mechanism. Hence, either
+the system's ICD loader (<system library directory>/libOpenCL.so) has to be
+replaced by dOpenCL's ICD (libdOpenCL.so), or the dOpenCL ICD has to be added to
+the list of preloaded libraries in the LD_PRELOAD environment variable.
+
+
+------------
+Known issues
+------------
+
+* GNU C++ linker: undefined reference to `pthread_*'
+
+Although dOpenCL does not use POSIX threads directly (but C++11 threads)
+compilers may use POSIX threads to implement C++11 threads. This is the case for
+the GNU C++ compiler, which requires the '-pthread' compiler option in order to
+compile dOpenCL. This option can be set using the CMAKE_CXXFLAGS setting in CMake.
+
+* CMake: Boost_DIR always is set to Boost_DIR-NOTFOUND
+
+This is a known bug of the FindBoost CMake module (see
+http://public.kitware.com/Bug/view.php?id=13453). The problem can be ignored as
+CMake stills correctly finds the Boost directory (if Boost is installed).
+

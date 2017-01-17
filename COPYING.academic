@@ -1,0 +1,37 @@
+dOpenCL Academic License - Version 1.0 - June 30th, 2013
+
+Developed by: Research Group Parallel and Distributed Systems
+              Department of Mathematics and Computer Science
+              University of Muenster, Germany
+              http://dopencl.uni-muenster.de
+
+  Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal with the Software in an academic environment for research or
+teaching purposes without any monetary gain, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense
+and to permit persons to whom the Software is furnished to do so, subject
+to the following conditions:
+
+  Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimers.
+
+  Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimers in the documentation
+and/or other materials provided with the distribution.
+
+  Neither the names of the above listed research groups, nor the names of
+its contributors may be used to endorse or promote products derived from
+this Software without specific prior written permission.
+
+  This Software and its authors have to be cited in publications related to
+products using this Software or products derived from this Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS WITH THE SOFTWARE.
+

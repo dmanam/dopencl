@@ -1,0 +1,11 @@
+/*!
+ * \namespace dcl
+ * \brief C++ API declarations for the dOpenCL communication layer
+ *
+ * dOpenCL specifies a communication API that is implementation by dOpenCL
+ * communication libraries. This API decouples the dOpenCL ICD and daemon from
+ * the particular communication API (e.g., sockets, Boost.Asio) that is used to
+ * implement the communication layer.
+ */
+
+ 
